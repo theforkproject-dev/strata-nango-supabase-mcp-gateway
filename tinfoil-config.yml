@@ -4,7 +4,7 @@ memory: 8192
 
 containers:
   - name: "nango-supabase-mcp-gateway"
-    image: "ghcr.io/theforkproject-dev/strata-ebo-mcps:tinfoil-nango-supabase-gateway-003@sha256:4875186b1a4afa29357c1605bcdbce99497d5a90b465e46a610f4026db407809"
+    image: "ghcr.io/theforkproject-dev/strata-ebo-mcps:tinfoil-nango-supabase-gateway-004@sha256:87e9a04383d4ba58ac278ad31253b24aae4f9f4d271d633a8036c0b04ccd9e88"
     env:
       - HOST: "0.0.0.0"
       - PORT: "8080"
@@ -62,8 +62,8 @@ containers:
       - REGISTRY_TRUST_ANCHOR_PUBLIC_KEY_PEM_BASE64: "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUNvd0JRWURLMlZ3QXlFQUN2empUb1lvMllNQjlMVnJBZ2ZpeGRvOTBOdXFZeElCekZyclJkZjB1dTQ9Ci0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo="
       - GATEWAY_TINFOIL_CONTAINER_NAME: "strata-nango-supabase-mcp-gateway"
       - GATEWAY_TINFOIL_CONFIG_REPO: "theforkproject-dev/strata-nango-supabase-mcp-gateway"
-      - GATEWAY_TINFOIL_CONFIG_TAG: "v0.1.0-nango-supabase-gateway.3"
-      - GATEWAY_TINFOIL_IMAGE_DIGEST: "sha256:4875186b1a4afa29357c1605bcdbce99497d5a90b465e46a610f4026db407809"
+      - GATEWAY_TINFOIL_CONFIG_TAG: "v0.1.0-nango-supabase-gateway.4"
+      - GATEWAY_TINFOIL_IMAGE_DIGEST: "sha256:87e9a04383d4ba58ac278ad31253b24aae4f9f4d271d633a8036c0b04ccd9e88"
       - GATEWAY_TINFOIL_ATTESTATION_URL: "https://strata-nango-supabase-mcp-gateway.amotivv.containers.tinfoil.dev/.well-known/tinfoil-attestation"
       - GATEWAY_TINFOIL_ATTESTATION_REQUIRED: "true"
       - TENANT_ID: "default"
