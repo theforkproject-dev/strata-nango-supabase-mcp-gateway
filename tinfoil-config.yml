@@ -4,7 +4,7 @@ memory: 8192
 
 containers:
   - name: "nango-supabase-mcp-gateway"
-    image: "ghcr.io/theforkproject-dev/strata-ebo-mcps:tinfoil-nango-supabase-gateway-001@sha256:88e288bffa6e2db86dbc11e51d9a7e5765a2f66b85e34e7c21ee386812bc4b13"
+    image: "ghcr.io/theforkproject-dev/strata-ebo-mcps:tinfoil-nango-supabase-gateway-002@sha256:cc1dc9d5eb5f25a800e6f92075f8b7787705370f7921662a955e6103ed76ccfd"
     env:
       - HOST: "0.0.0.0"
       - PORT: "8080"
@@ -62,8 +62,8 @@ containers:
       - REGISTRY_TRUST_ANCHOR_PUBLIC_KEY_PEM_BASE64: "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUNvd0JRWURLMlZ3QXlFQUN2empUb1lvMllNQjlMVnJBZ2ZpeGRvOTBOdXFZeElCekZyclJkZjB1dTQ9Ci0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo="
       - GATEWAY_TINFOIL_CONTAINER_NAME: "strata-nango-supabase-mcp-gateway"
       - GATEWAY_TINFOIL_CONFIG_REPO: "theforkproject-dev/strata-nango-supabase-mcp-gateway"
-      - GATEWAY_TINFOIL_CONFIG_TAG: "v0.1.0-nango-supabase-gateway.1"
-      - GATEWAY_TINFOIL_IMAGE_DIGEST: "sha256:88e288bffa6e2db86dbc11e51d9a7e5765a2f66b85e34e7c21ee386812bc4b13"
+      - GATEWAY_TINFOIL_CONFIG_TAG: "v0.1.0-nango-supabase-gateway.2"
+      - GATEWAY_TINFOIL_IMAGE_DIGEST: "sha256:cc1dc9d5eb5f25a800e6f92075f8b7787705370f7921662a955e6103ed76ccfd"
       - GATEWAY_TINFOIL_ATTESTATION_URL: "https://strata-nango-supabase-mcp-gateway.amotivv.containers.tinfoil.dev/.well-known/tinfoil-attestation"
       - GATEWAY_TINFOIL_ATTESTATION_REQUIRED: "true"
       - TENANT_ID: "default"
@@ -72,6 +72,7 @@ containers:
     secrets:
       - MCP_SESSION_SECRET
       - OAUTH_CONSENT_PASSWORD_SHA256
+      - NANGO_SUPABASE_MCP_CONSENT_PASSWORD_SHA256
       - OAUTH_DYNAMODB_AWS_ACCESS_KEY_ID
       - OAUTH_DYNAMODB_AWS_SECRET_ACCESS_KEY
       - CERTIFICATE_BUNDLE_AWS_ACCESS_KEY_ID
