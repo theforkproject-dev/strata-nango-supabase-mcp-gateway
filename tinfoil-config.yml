@@ -1,0 +1,99 @@
+cvm-version: 0.7.5
+cpus: 2
+memory: 8192
+
+containers:
+  - name: "nango-supabase-mcp-gateway"
+    image: "ghcr.io/theforkproject-dev/strata-ebo-mcps:tinfoil-nango-supabase-gateway-001@sha256:88e288bffa6e2db86dbc11e51d9a7e5765a2f66b85e34e7c21ee386812bc4b13"
+    env:
+      - HOST: "0.0.0.0"
+      - PORT: "8080"
+      - NODE_OPTIONS: "--dns-result-order=ipv4first"
+      - STRATA_GATEWAY_KIND: "nango-supabase"
+      - DATA_DIR: "/mnt/ramdisk/nango-supabase-mcp"
+      - PUBLIC_BASE_URL: "https://strata-nango-supabase-mcp-gateway.amotivv.containers.tinfoil.dev"
+      - CERTIFICATE_BASE_URL: "https://strata-nango-supabase-mcp-gateway.amotivv.containers.tinfoil.dev/certificates"
+      - OAUTH_ISSUER: "https://strata-nango-supabase-mcp-gateway.amotivv.containers.tinfoil.dev"
+      - OAUTH_STORE_BACKEND: "dynamodb"
+      - OAUTH_DYNAMODB_TABLE: "strata-oauth-poc-oauth-store-345337478194"
+      - OAUTH_DYNAMODB_AWS_REGION: "us-east-2"
+      - OAUTH_DYNAMODB_TTL_ATTRIBUTE: "ttl"
+      - OAUTH_REFRESH_TOKEN_TTL_SECONDS: "604800"
+      - CERTIFICATE_BUNDLE_STORE_BACKEND: "s3-cloudfront"
+      - CERTIFICATE_BUNDLE_AWS_REGION: "us-east-2"
+      - CERTIFICATE_BUNDLE_S3_BUCKET: "strata-certificate-bundles-poc-345337478194"
+      - CERTIFICATE_BUNDLE_S3_PREFIX: "certificates"
+      - CERTIFICATE_BUNDLE_PUBLIC_BASE: "https://d33vpkebicuw51.cloudfront.net/certificates"
+      - CERTIFICATE_BUNDLE_LOCK_MODE: "GOVERNANCE"
+      - CERTIFICATE_BUNDLE_PUBLISH_REQUIRED: "true"
+      - SUPABASE_CONNECTOR_ID: "nango-heyjil-supabase-pilot"
+      - SUPABASE_CONNECTOR_LABEL: "Nango HeyJil Supabase Pilot"
+      - SUPABASE_PROJECT_REF: "ghmfczkhbwfftvpsrghy"
+      - SUPABASE_MCP_READ_ONLY: "true"
+      - SUPABASE_MCP_FEATURES: "database,docs"
+      - SUPABASE_ENABLE_UPSTREAM_CALLS: "true"
+      - SUPABASE_EVIDENCE_MODE: "digest-only"
+      - SUPABASE_TOOL_RESULT_MODE: "text"
+      - SUPABASE_TOOL_RESULT_MAX_CHARS: "20000"
+      - SUPABASE_QUERY_MAX_ROWS: "100"
+      - SUPABASE_QUERY_TIMEOUT_MS: "30000"
+      - SUPABASE_BLOCKED_SCHEMAS: "auth,storage,vault"
+      - NANGO_SERVER_URL: "https://api.nango.dev"
+      - NANGO_SUPABASE_PROVIDER_CONFIG_KEY: "supabase-mcp-oauth"
+      - NANGO_SUPABASE_CONNECTION_ID: "15aed611-90a0-4f77-b624-6f439f85bcfa"
+      - NANGO_SUPABASE_PROJECT_REF: "ghmfczkhbwfftvpsrghy"
+      - NANGO_SUPABASE_TAG: "nango-supabase-poc"
+      - NANGO_SUPABASE_END_USER_ID: "attexa-demo-jason"
+      - NANGO_SUPABASE_END_USER_EMAIL: "jason@amotivv.com"
+      - NANGO_SUPABASE_ORGANIZATION_ID: "amotivv-dev"
+      - WITNESS_URLS: "strata-witness-poc-1|wit_epoch_tinfoil_poc_003|registry_epoch_tinfoil_poc_005|supabase.query=https://strata-witness-poc-1.amotivv.containers.tinfoil.dev,strata-witness-poc-2|wit_epoch_tinfoil_poc_2_001|registry_epoch_tinfoil_poc_005|supabase.query=https://strata-witness-poc-2.amotivv.containers.tinfoil.dev,strata-witness-poc-3|wit_epoch_tinfoil_poc_3_001|registry_epoch_tinfoil_poc_005|supabase.query=https://strata-witness-poc-3.amotivv.containers.tinfoil.dev"
+      - WITNESS_THRESHOLD: "2"
+      - GATEWAY_SIGNED_WITNESS_REQUESTS_ENABLED: "true"
+      - GATEWAY_ID: "gateway:strata-poc-demo"
+      - GATEWAY_KEY_ID: "gateway:strata-poc-demo:epoch-tinfoil-001"
+      - WITNESS_EPOCH_ID: "wit_epoch_tinfoil_poc_003"
+      - REGISTRY_EPOCH_ID: "registry_epoch_tinfoil_poc_005"
+      - WITNESS_WORKFLOW_ID: "supabase.query"
+      - POLICY_WITNESS_URLS: "p1=https://strata-email-policy-witness-1.fly.dev,p2=https://strata-email-policy-witness-2.fly.dev,p3=https://strata-email-policy-witness-3.fly.dev"
+      - POLICY_WITNESS_THRESHOLD: "2"
+      - REGISTRY_URL: "https://strata-email-registry.fly.dev"
+      - REGISTRY_EPOCH_DIGEST: "3f9918711483531359e296476e1ac993aa4bf942cf3cc7d8d80c5303d834b7d2"
+      - REGISTRY_TRUST_ANCHOR_KEY_ID: "registry-authority:email-demo"
+      - REGISTRY_TRUST_ANCHOR_PUBLIC_KEY_PEM_BASE64: "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUNvd0JRWURLMlZ3QXlFQUN2empUb1lvMllNQjlMVnJBZ2ZpeGRvOTBOdXFZeElCekZyclJkZjB1dTQ9Ci0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQo="
+      - GATEWAY_TINFOIL_CONTAINER_NAME: "strata-nango-supabase-mcp-gateway"
+      - GATEWAY_TINFOIL_CONFIG_REPO: "theforkproject-dev/strata-nango-supabase-mcp-gateway"
+      - GATEWAY_TINFOIL_CONFIG_TAG: "v0.1.0-nango-supabase-gateway.1"
+      - GATEWAY_TINFOIL_IMAGE_DIGEST: "sha256:88e288bffa6e2db86dbc11e51d9a7e5765a2f66b85e34e7c21ee386812bc4b13"
+      - GATEWAY_TINFOIL_ATTESTATION_URL: "https://strata-nango-supabase-mcp-gateway.amotivv.containers.tinfoil.dev/.well-known/tinfoil-attestation"
+      - GATEWAY_TINFOIL_ATTESTATION_REQUIRED: "true"
+      - TENANT_ID: "default"
+      - OPERATOR_ID: "operator:amotivv-demo"
+      - OPERATOR_ADMISSION_KEY_ID: "operator-admission:amotivv-demo"
+    secrets:
+      - MCP_SESSION_SECRET
+      - OAUTH_CONSENT_PASSWORD_SHA256
+      - OAUTH_DYNAMODB_AWS_ACCESS_KEY_ID
+      - OAUTH_DYNAMODB_AWS_SECRET_ACCESS_KEY
+      - CERTIFICATE_BUNDLE_AWS_ACCESS_KEY_ID
+      - CERTIFICATE_BUNDLE_AWS_SECRET_ACCESS_KEY
+      - GATEWAY_KEY_JSON
+      - OPERATOR_ADMISSION_KEY_JSON
+      - NANGO_SECRET_KEY
+    command: ["node", "src/server.js"]
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+    restart: always
+
+shim:
+  upstream-port: 8080
+  paths:
+    - /health
+    - /mcp
+    - /certificates/*
+    - /.well-known/*
+    - /oauth/*
+    - /connectors/*
